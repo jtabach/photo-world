@@ -10,12 +10,14 @@ block content
   h3 Select album cover photo
   form(action=`/profile/album/${album.id}`, method='post', enctype='multipart/form-data')
     .form-group
-      input(type='file', name='images', multuple=true)
+      input(type='file', name='images', multiple=true)
     button.btn.btn-primary Add Photos
     
+  
   .row
-    each photo in photos
+    #albumCollection
+      each photo in photos
         img.photo(src=photo.photoUrl)
-      
+    
 
 block scripts
