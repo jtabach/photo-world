@@ -50,6 +50,16 @@ router.get('/myAlbums', function(req, res) {
   })
 })
 
+router.get('/album/:albumId', function(req, res) {
+  Album.findById(req.params.albumId, function(err, album){
+    if (err) return res.status(400).send(err);
+    Photo.find({userId: req.user._id, available: true}, function(err, photos){
+      if (err) return res.status(400).send(err);
+      res.render('album', {album:album, photos: photos});
+    });
+  });
+});
+
 function errorHandler(res, type, err, descr) {
   if (err) return res.status(400).send(descr, err);
 }

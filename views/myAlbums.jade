@@ -27,7 +27,8 @@ block content
           each album in albums
             tr.dataRow(data-book = album.id)
               td 
-                img.bookIcon(src=album.photoUrl)
+                a(href='/profile/album/'+album.id)
+                  img.bookIcon(src=album.photoUrl)
               td.title.searchable #{album.title}
               // --- For Future Use ---
               //- td
@@ -37,4 +38,4 @@ block content
       h2 You currently have no albums
       h4 How about adding an album to your collection?
 block scripts
-  script(src="/js/userBooks.js")
+  script(src="/js/myBooks.js")
