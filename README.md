@@ -4,4 +4,4 @@
 
 ### Node.js - Express - MongoDB - Firebase (user-auth) - AWS
 
-Create Account - Create albums - Upload images
+Create Account - Create Albums - Upload Images
