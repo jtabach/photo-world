@@ -68,7 +68,6 @@ router.post('/album/:albumId', upload.array('images'), function(req, res) {
     var filename = file.originalname;
     var ext = filename.match(/\.\w+$/)[0] || '';
     var key = uuid.v1() + ext;
-
     var params = {
       Bucket: process.env.AWS_BUCKET,
       Key: key,
@@ -77,24 +76,28 @@ router.post('/album/:albumId', upload.array('images'), function(req, res) {
 
     s3.putObject(params, function(err, data) {
       if (err) return res.status(400).send(err);
-
       var url = process.env.AWS_URL + "/" + process.env.AWS_BUCKET + "/" + key;
       var photo = new Photo({
         title: filename,
         photoUrl: url,
         albumId: req.params.albumId
       });
+
       photo.save(function(){
         next();
       });
     });
-
-
   }, function(err, contents) {
     if (err) return res.status(400).send(err);
     res.redirect('/profile/album/' + req.params.albumId);
-  })
+  });
 });
 
+router.get('/photo/:photoId', function(req, res) {
+  Photo.findById(req.params.photoId, function(err, photo) {
+    if (err) return res.status(400).send(err);
+    res.render('photo', {photo: photo});
+  });
+});
 
 module.exports = router;

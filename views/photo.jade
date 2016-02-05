@@ -1,0 +1,12 @@
+extends layout
+
+block links
+  link(rel='stylesheet', href='/css/loggedInNavbar.css')
+  link(rel='stylesheet', href='/css/photo.css')
+
+block content
+  h1 Photo
+  #photoWrapper
+    img(src=photo.photoUrl)
+    h2 #{photo.title}
+    

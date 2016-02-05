@@ -17,7 +17,8 @@ block content
     .row
       #albumCollection
         each photo in photos
-          img.photo(src=photo.photoUrl)
+          a(href=`/profile/photo/${photo._id}`)
+            img.photo(src=photo.photoUrl)
   else
     #noPhotos
       h2 You currently have no photos
