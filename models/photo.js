@@ -9,9 +9,9 @@ var photoSchema = new mongoose.Schema({
   },
   title: {type: String, default: 'title unknown'},
   // date: {type: Boolean, default: true},
-  photoUrl: {type: String, default: "http://i.imgur.com/sJ3CT4V.gif"}
+  photoUrl: {type: String, default: "http://www.drphillipscenter.org/resources/images/default.jpg"}
 });
 
-var Photo = mongoose.model('Book', photoSchema);
+var Photo = mongoose.model('Photo', photoSchema);
 
 module.exports = Photo;

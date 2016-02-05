@@ -2,11 +2,18 @@
 
 var express = require('express');
 var router = express.Router();
+var AWS = require('aws-sdk');
+var uuid = require('node-uuid');
+
+var s3 = new AWS.S3();
+
+require('dotenv').config();
 
 var authMiddleware = require('../config/auth');
 
 var User = require('../models/user');
 var Album = require('../models/album');
+var Photo = require('../models/photo');
 
 router.use(authMiddleware);
 
@@ -20,6 +27,31 @@ router.get('/', function(req, res, next){
 
 router.get('/changePassword', function(req, res){
   res.render('changePassword');
+});
+
+router.get('/newAlbum', function(req, res) {
+  res.render('newAlbum');
+});
+
+router.post('/newAlbum', function(req, res) {
+  var newAlbum = req.body;
+  newAlbum.userId = req.user._id;
+  Album.create(newAlbum, function(err, savedAlbum) {
+    if (err) return res.status(400).send('error adding album', err);
+    res.status(200).send('album added');
+  });
+});
+
+router.get('/myAlbums', function(req, res) {
+  Album.find({userId:req.user._id}, function(err, albums) {
+    console.log(albums);
+    if (err) return res.status(400).send('error finding albums', err);
+    res.render('myAlbums', {albums: albums});
+  })
 })
+
+function errorHandler(res, type, err, descr) {
+  if (err) return res.status(400).send(descr, err);
+}
 
 module.exports = router;

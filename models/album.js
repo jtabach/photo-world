@@ -12,6 +12,6 @@ var albumSchema = new mongoose.Schema({
   photoUrl: {type: String, default: "http://i.imgur.com/sJ3CT4V.gif"}
 });
 
-var Album = mongoose.model('Book', albumSchema);
+var Album = mongoose.model('Album', albumSchema);
 
 module.exports = Album;
