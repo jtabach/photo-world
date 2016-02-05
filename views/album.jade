@@ -5,19 +5,23 @@ block links
   link(rel='stylesheet', href='/css/albumPhotos.css')
 
 block content
-  h1 Add some photos to your Album
+  h1 Album: #{album.title}
   
-  h3 Select album cover photo
+  h3 Select photos from your device
   form(action=`/profile/album/${album.id}`, method='post', enctype='multipart/form-data')
     .form-group
       input(type='file', name='images', multiple=true)
     button.btn.btn-primary Add Photos
     
-  
-  .row
-    #albumCollection
-      each photo in photos
-        img.photo(src=photo.photoUrl)
+  if photos.length
+    .row
+      #albumCollection
+        each photo in photos
+          img.photo(src=photo.photoUrl)
+  else
+    #noPhotos
+      h2 You currently have no photos
+      h4 How about adding some photos to your album?
     
 
 block scripts

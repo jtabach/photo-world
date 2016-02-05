@@ -1,7 +1,5 @@
 body {
-  background: url('/images/photography.png') no-repeat;
-  background-size: cover;
-
+  background: url('/images/photography.png');
 }
 
 h1 {

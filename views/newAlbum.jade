@@ -3,21 +3,17 @@ extends layout
 
 block links
   link(rel='stylesheet', href='/css/loggedInNavbar.css')
+  link(rel='stylesheet', href='/css/newAlbum.css')
 
 block content
   h1 Add an album to your collection
   
-  //- h3 Select album cover photo
-  //- form(action='/albumCover', method='post', enctype='multipart/form-data')
-  //-   .form-group
-  //-     input(type='file', name='images', multuple=false)
-  
   form#addAlbumForm
     .form-group
-      label(for='title') Title:
+      label.new(for='title') Title:
       input#title.form-control(type='text', placeholder='title')
     .form-group
-      label(for='photo') Cover Photo Url:
+      label.new(for='photo') Cover Photo Url:
       input#photoUrl.password.form-control(type='text', placeholder='photo url')
     button.btn.btn-primary(type='submit') Add Book
 
