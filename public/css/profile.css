@@ -1,15 +1,52 @@
 body {
-  background: url('/images/crisp_paper_ruffles.png') no-repeat;
+  background: url('/images/photography.png') no-repeat;
   background-size: cover;
+
 }
 
 h1 {
+  font-family: 'Quicksand', sans-serif;
+  /*font-family: 'Pontano Sans', sans-serif;*/
   color: black;
-  font-size: 145px;
+  font-size: 110px;
   text-align: center;
 }
 
+.album {
+  height: 300px;
+  margin-top: 100px
+}
 
+#myAlbums {
+  background: url('/images/myAlbums.png') no-repeat center center;
+  background-size: contain;
+}
+
+#newAlbum {
+  background: url('/images/newAlbum.png') no-repeat center center;
+  background-size: contain;
+}
+/*
+#userBooks {
+  background: url('/images/green-book.png') no-repeat;
+  background-size: contain;
+}
+#allBooks {
+  background: url('/images/orange-book.png') no-repeat;
+  background-size: contain;
+}
+#addBook {
+  background: url('/images/book-blue.png') no-repeat;
+  background-size: contain;
+}
+#transactionHistory {
+  background: url('/images/red-book2.png') no-repeat;
+  background-size: contain;
+}
+
+#registerLink, #loginLink {
+  display: none;
+}*/
 
 .bookIcon {
   height: 150px;

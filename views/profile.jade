@@ -6,4 +6,11 @@ block links
   link(rel='stylesheet', href='/css/profile.css')
 
 block content
-  h1 Hello
+  h1 Hello, #{user.username}!
+  .row
+    .col-xs-6
+      a(href="/profile/userBooks")
+        #myAlbums.album
+    .col-xs-6
+      a(href="/profile/availableBooks")
+        #newAlbum.album
