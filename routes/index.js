@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if (req.cookies.mytoken) return res.redirect('/profile');
-  res.render('index', { title: 'Book Swap' });
+  res.render('index', { title: 'Photo World' });
 });
 
 router.get('/register', function(req, res, next){

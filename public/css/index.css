@@ -1,5 +1,5 @@
 body {
-  background: url('http://www.magic4walls.com/wp-content/uploads/2013/11/cup-books-wallpaper-1680x1050.jpg') no-repeat center center fixed;
+  background: url('http://eskipaper.com/images/free-wallpapers-for-desktop-20.jpg') no-repeat center center fixed;
   background-size: cover;
   text-align: center;
 }
@@ -11,7 +11,7 @@ h1 {
 }
 
 p {
-  color: rgb(0, 212, 176);
+  color: yellow;
   font-size: 25px;
 }
 
@@ -24,11 +24,9 @@ h4 {
   width: 200px;
   height: 60px;
   font-size: 24px;
-  background-color: #31b0d5;
 }
 
 #getStartedBtn:hover {
-  background-color: #279cbf;
 }
 
 #logoutLink {

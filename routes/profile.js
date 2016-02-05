@@ -6,6 +6,7 @@ var router = express.Router();
 var authMiddleware = require('../config/auth');
 
 var User = require('../models/user');
+var Album = require('../models/album');
 
 router.use(authMiddleware);
 

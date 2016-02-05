@@ -9,7 +9,6 @@ var userSchema = new mongoose.Schema({
   username: String,
   uid: String,
   phone: String,
-  favorites: [String]
 });
 
 // instance method

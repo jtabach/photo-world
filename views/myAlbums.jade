@@ -1,0 +1,56 @@
+extends layout
+
+block links
+  link(rel='stylesheet', href='/css/loggedInNavbar.css')
+  link(rel='stylesheet', href='/css/userBooks.css')
+
+block content
+  h1 My books
+  #addBookWrapper
+    a(href='/profile/addBook')
+      button.btn.btn-info Add Book
+  if books.length
+    br
+    input#search.form-control(type='text', placeholder='Search')
+    br
+    #tableWrapper
+      table.table.table-hover
+        thead
+          tr
+            th Book Cover
+            th#title(data-sort=1) Title 
+              span.glyphicon.glyphicon-sort
+            th#author(data-sort=1) Author 
+              span.glyphicon.glyphicon-sort
+            th#genre(data-sort=1) Genre 
+              span.glyphicon.glyphicon-sort
+            th ISBN
+            th#available(data-sort=1) Available for trade 
+              span.glyphicon.glyphicon-sort
+            // --- For Future Use ---
+            //- th &nbsp;
+            //-   span.glyphicon.glyphicon-trash
+        tbody
+          each book in books
+            tr.dataRow(data-book = book.id)
+              td 
+                img.bookIcon(src=book.photoUrl)
+              td.title.searchable #{book.title}
+              td.author.searchable #{book.author}
+              td.genre.searchable #{book.genre}
+              td.searchable #{book.isbn}
+              if book.available
+                td.available Yes  &nbsp;
+                  a#changeStatus make unavailable
+              else
+                td.available No  &nbsp;
+                  a#changeStatus make available
+              // --- For Future Use ---
+              //- td
+              //-   span.deleteBook.glyphicon.glyphicon-trash
+  else
+    #noBooks
+      h2 You currently have no books
+      h4 How about adding a book to your collection?
+block scripts
+  script(src="/js/userBooks.js")
