@@ -13,7 +13,7 @@ function addAlbum(e) {
 
   $.post('/profile/newAlbum', newAlbum)
   .success(function(data) {
-    location.href = '/profile';
+    location.href = '/profile/myAlbums';
   }).
   fail(function(err) {
     console.log('error adding book:', err);

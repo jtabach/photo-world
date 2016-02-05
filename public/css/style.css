@@ -10,6 +10,10 @@ h1{
   font-size: 80px;
 }
 
+#login {
+  color: blue;
+}
+
 a {
   color: #00B7FF;
 }
