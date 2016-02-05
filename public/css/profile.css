@@ -1,0 +1,17 @@
+body {
+  background: url('/images/crisp_paper_ruffles.png') no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  color: black;
+  font-size: 145px;
+  text-align: center;
+}
+
+
+
+.bookIcon {
+  height: 150px;
+  margin-top: 80px;
+}
