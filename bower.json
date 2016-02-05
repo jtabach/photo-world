@@ -1,0 +1,23 @@
+{
+  "name": "photo-world",
+  "description": "",
+  "main": "",
+  "authors": [
+    "jtabach <jeff.n.tabachnick@gmail.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "public/bower_components"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "jquery": "~2.2.0"
+  }
+}
