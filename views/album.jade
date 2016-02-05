@@ -2,23 +2,20 @@ extends layout
 
 block links
   link(rel='stylesheet', href='/css/loggedInNavbar.css')
+  link(rel='stylesheet', href='/css/albumPhotos.css')
 
 block content
   h1 Add some photos to your Album
   
-  //- h3 Select album cover photo
-  //- form(action='/albumCover', method='post', enctype='multipart/form-data')
-  //-   .form-group
-  //-     input(type='file', name='images', multuple=false)
-  
-  form#addAlbumForm
+  h3 Select album cover photo
+  form(action=`/profile/album/${album.id}`, method='post', enctype='multipart/form-data')
     .form-group
-      label(for='title') Title:
-      input#title.form-control(type='text', placeholder='title')
-    .form-group
-      label(for='photo') Cover Photo Url:
-      input#photoUrl.password.form-control(type='text', placeholder='photo url')
-    button.btn.btn-primary(type='submit') Add Book
+      input(type='file', name='images', multuple=true)
+    button.btn.btn-primary Add Photos
+    
+  .row
+    each photo in photos
+        img.photo(src=photo.photoUrl)
+      
 
 block scripts
-  script(src="/js/newAlbum.js")
