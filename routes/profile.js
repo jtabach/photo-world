@@ -100,4 +100,11 @@ router.get('/photo/:photoId', function(req, res) {
   });
 });
 
+router.delete('/photo/:photoId', function(req, res) {
+  Photo.findByIdAndRemove(req.params.photoId, function(err, photo) {
+    if (err) return res.status(400).send(err);
+    res.send(photo.albumId);
+  })
+})
+
 module.exports = router;
