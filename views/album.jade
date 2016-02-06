@@ -9,14 +9,14 @@ block content
   
   .row
     form(`/profile/album/${album.id}`, method='post', enctype='multipart/form-data')
-      .col-xs-2
+      .col-xs-2.col-xs-offset-3
         .form-group
           h2 Select photos
           input(type='file', name='images', multiple=true)
       .col-xs-3
         button#addPhotos.btn.btn-primary Add Photos
-    .col-xs-12
-      button#deleteAlbum.btn.btn-danger.pull-right(data-album=album.id) Delete Album
+      .col-xs-1
+        a#deleteAlbum.btn.btn-danger.pull-right(data-album=album.id) Delete Album
     
   if photos.length
     .row#albumCollection

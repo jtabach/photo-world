@@ -36,6 +36,11 @@ label{
   margin-top: 28px;
 }
 
+#deleteAlbum {
+  margin-top: 28px;
+  border: 1px solid black;
+}
+
 #albumCollection {
   background: black;
   text-align: center;
