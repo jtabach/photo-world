@@ -1,0 +1,18 @@
+extends layout
+
+block links
+  link(rel='stylesheet', href='/css/loggedInNavbar.css')
+  link(rel='stylesheet', href='/css/photo.css')
+
+block content
+  h1 #{photo.title}
+  .row
+    .col-xs-offset-2.col-xs-8
+      #photoWrapper
+        img(src=photo.photoUrl)
+        br
+        h2 #{photo.date}
+        
+        
+block scripts
+  script(src="/js/photo.js")

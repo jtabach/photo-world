@@ -1,0 +1,23 @@
+extends layout
+
+block links
+  link(rel='stylesheet', href='/css/loggedInNavbar.css')
+  link(rel='stylesheet', href='/css/albumPhotos.css')
+
+block content
+  h1 Photo World Collection
+    
+  if photos.length
+    .row#albumCollection
+      each photo in photos
+        a(href=`/profile/lockedPhoto/${photo._id}`)
+          div.photo(style=`background-image: url(${photo.photoUrl})`)
+          //- img.photo(src=photo.photoUrl)
+  else
+    #noPhotos
+      h2 There Currently No Other Photos In Photo World
+    
+
+block scripts
+  //- script(src="/js/addPhoto.js")
+  script(src="/js/deleteAlbum.js")

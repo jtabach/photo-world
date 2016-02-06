@@ -8,6 +8,10 @@ var photoSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Album'
   },
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
   title: {type: String, default: 'title unknown'},
   date: {type: String, default: moment(Date.now()).format('LL')},
   privacy: {type: String},

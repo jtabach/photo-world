@@ -48,7 +48,6 @@ router.post('/newAlbum', function(req, res) {
 
 router.get('/myAlbums', function(req, res) {
   Album.find({userId:req.user._id}, function(err, albums) {
-    console.log(albums);
     if (err) return res.status(400).send('error finding albums', err);
     res.render('myAlbums', {albums: albums});
   })
@@ -65,8 +64,7 @@ router.get('/album/:albumId', function(req, res) {
 });
 
 router.post('/album/:albumId', upload.array('images'), function(req, res) {
-  console.log(req.files)
-;  each(req.files, function(file, next) {
+  each(req.files, function(file, next) {
     var filename = file.originalname;
     var ext = filename.match(/\.\w+$/)[0] || '';
     var key = uuid.v1() + ext;
@@ -82,7 +80,8 @@ router.post('/album/:albumId', upload.array('images'), function(req, res) {
       var photo = new Photo({
         title: filename,
         photoUrl: url,
-        albumId: req.params.albumId
+        albumId: req.params.albumId,
+        userId: req.user._id
       });
 
       photo.save(function(){
@@ -112,6 +111,13 @@ router.get('/photo/:photoId', function(req, res) {
   });
 });
 
+router.get('/lockedPhoto/:photoId', function(req, res) {
+  Photo.findById(req.params.photoId, function(err, photo) {
+    if (err) return res.status(400).send(err);
+    res.render('lockedPhoto', {photo: photo});
+  });
+});
+
 router.delete('/photo/:photoId', function(req, res) {
   Photo.findByIdAndRemove(req.params.photoId, function(err, photo) {
     if (err) return res.status(400).send(err);
@@ -130,5 +136,12 @@ router.put('/newCover/:photoId', function(req, res) {
     })
   })
 })
+
+router.get('/allPhotos', function(req, res) {
+  Photo.find({userId: {$ne: req.user._id}}, function(err, photos) {
+    if (err) return res.status(400).send(err);
+    res.render('allPhotos', {photos: photos})
+  });
+});
 
 module.exports = router;
