@@ -2,6 +2,7 @@
 
 $(function() {
   $('.deletePhoto').on('click', confirmDelete);
+  $('.coverPhoto').on('click', coverPhoto);
 });
 
 function confirmDelete() {
@@ -22,8 +23,6 @@ function confirmDelete() {
 
 function deletePhoto($this) {
   var photoId = $this.data('photo');
-  swal()
-
   $.ajax({
     url: `/profile/photo/${photoId}`,
     method: 'DELETE'
@@ -34,4 +33,19 @@ function deletePhoto($this) {
   .fail(function(err) {
     console.log(err);
   })
+}
+
+function coverPhoto() {
+  var photoId = $(this).data('photo');
+  $.ajax({
+    url: `/profile/newCover/${photoId}`,
+    method: 'PUT'
+  })
+  .success(function(data) {
+    console.log('new cover photo')
+    // location.href = `/profile/myAlbums`
+  })
+  .fail(function(err) {
+    console.log(err);
+  });
 }

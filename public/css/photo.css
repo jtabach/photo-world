@@ -9,14 +9,19 @@ h1 {
 }
 
 #photoWrapper {
-  margin: 40px auto 0 auto;
+  margin: 10px auto 0 auto;
   text-align: center;
+}
+
+.deletePhoto {
+  margin-top: 10px;
 }
 
 img {
   display: inline block;
-  width: 60%;
+  width: 100%;
   padding: 30px;
   background: black;
   border: 10px solid gray;
+  margin-top: 10px
 }

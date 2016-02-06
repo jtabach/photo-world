@@ -107,4 +107,16 @@ router.delete('/photo/:photoId', function(req, res) {
   })
 })
 
+router.put('/newCover/:photoId', function(req, res) {
+  Photo.findById(req.params.photoId, function(err, photo) {
+    if (err) return res.status(400).send(err);
+    Album.findById(photo.albumId, function(err, album) {
+      if (err) return res.status(400).send(err);
+      album.photoUrl = photo.photoUrl;
+      album.save();
+      res.send('ok');
+    })
+  })
+})
+
 module.exports = router;
