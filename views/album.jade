@@ -15,7 +15,8 @@ block content
           input(type='file', name='images', multiple=true)
       .col-xs-3
         button#addPhotos.btn.btn-primary Add Photos
-    button#deleteAlbum.btn.btn-danger.pull-right(data-album=album.id) Delete Album
+    .col-xs-12
+      button#deleteAlbum.btn.btn-danger.pull-right(data-album=album.id) Delete Album
     
   if photos.length
     .row#albumCollection

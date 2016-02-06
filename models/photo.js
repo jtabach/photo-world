@@ -1,6 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose');
+var moment = require('moment');
 
 var photoSchema = new mongoose.Schema({
   albumId: {
@@ -8,7 +9,7 @@ var photoSchema = new mongoose.Schema({
     ref: 'Album'
   },
   title: {type: String, default: 'title unknown'},
-  date: {type: Number, default: Date.now()},
+  date: {type: String, default: moment(Date.now()).format('LL')},
   privacy: {type: String},
   photoUrl: {type: String, default: "http://www.drphillipscenter.org/resources/images/default.jpg"}
 });

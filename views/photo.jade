@@ -5,14 +5,14 @@ block links
   link(rel='stylesheet', href='/css/photo.css')
 
 block content
-  h1 Photo
+  h1 #{photo.title}
   .row
     .col-xs-offset-2.col-xs-8
       #photoWrapper
         button.coverPhoto.btn.btn-success(data-photo = photo.id) Make Album Cover Photo
         img(src=photo.photoUrl)
         br
-        h2 #{photo.title}
+        h2 #{photo.date}
         button.deletePhoto.btn.btn-danger(data-photo = photo.id) Delete Photo
         
 block scripts

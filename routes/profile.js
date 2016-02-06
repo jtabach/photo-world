@@ -6,6 +6,7 @@ var AWS = require('aws-sdk');
 var uuid = require('node-uuid');
 var each = require('async-each');
 var multer = require('multer');
+var moment = require('moment');
 
 var s3 = new AWS.S3();
 var upload = multer({ storage: multer.memoryStorage() });

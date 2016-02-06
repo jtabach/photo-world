@@ -7,7 +7,7 @@ body {
   background: no-repeat center center;
   background-size: cover;
   height: 300px;
-  width: 500px;
+  width: 1000px;
   max-width: 33.3%;
   border: 5px solid black;
   display: inline-block;
@@ -37,8 +37,9 @@ label{
 }
 
 #albumCollection {
-  margin: 10px auto 60px auto;
   background: black;
+  text-align: center;
+  margin: 10px auto 60px auto;
   padding: 5px;
 }
 
