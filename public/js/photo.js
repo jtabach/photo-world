@@ -42,8 +42,7 @@ function coverPhoto() {
     method: 'PUT'
   })
   .success(function(data) {
-    console.log('new cover photo')
-    // location.href = `/profile/myAlbums`
+    location.href = `/profile/myAlbums`
   })
   .fail(function(err) {
     console.log(err);

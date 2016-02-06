@@ -17,6 +17,10 @@ th {
   text-align: center;
 }
 
+label {
+  color: white;
+}
+
 .table > tbody > tr > td {
   vertical-align: middle;
   font-size: 40px;

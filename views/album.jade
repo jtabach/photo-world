@@ -7,18 +7,22 @@ block links
 block content
   h1 Album: #{album.title}
   
-  h3 Select photos from your device
-  form(action=`/profile/album/${album.id}`, method='post', enctype='multipart/form-data')
-    .form-group
-      input(type='file', name='images', multiple=true)
-    button.btn.btn-primary Add Photos
+  .row
+    form(`/profile/album/${album.id}`, method='post', enctype='multipart/form-data')
+      .col-xs-2
+        .form-group
+          h2 Select photos
+          input(type='file', name='images', multiple=true)
+      .col-xs-3
+        button#addPhotos.btn.btn-primary Add Photos
+    button#deleteAlbum.btn.btn-danger.pull-right(data-album=album.id) Delete Album
     
   if photos.length
-    .row
-      #albumCollection
-        each photo in photos
-          a(href=`/profile/photo/${photo._id}`)
-            img.photo(src=photo.photoUrl)
+    .row#albumCollection
+      each photo in photos
+        a(href=`/profile/photo/${photo._id}`)
+          div.photo(style=`background-image: url(${photo.photoUrl})`)
+          //- img.photo(src=photo.photoUrl)
   else
     #noPhotos
       h2 You currently have no photos
@@ -26,3 +30,5 @@ block content
     
 
 block scripts
+  //- script(src="/js/addPhoto.js")
+  script(src="/js/deleteAlbum.js")

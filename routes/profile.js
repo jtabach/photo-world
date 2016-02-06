@@ -64,7 +64,8 @@ router.get('/album/:albumId', function(req, res) {
 });
 
 router.post('/album/:albumId', upload.array('images'), function(req, res) {
-  each(req.files, function(file, next) {
+  console.log(req.files)
+;  each(req.files, function(file, next) {
     var filename = file.originalname;
     var ext = filename.match(/\.\w+$/)[0] || '';
     var key = uuid.v1() + ext;
@@ -90,6 +91,16 @@ router.post('/album/:albumId', upload.array('images'), function(req, res) {
   }, function(err, contents) {
     if (err) return res.status(400).send(err);
     res.redirect('/profile/album/' + req.params.albumId);
+  });
+});
+
+router.delete('/album/delete', function(req, res) {
+  Album.findByIdAndRemove(req.body.albumId, function(err) {
+    if (err) return res.status(400).send(err);
+    Photo.remove({albumId: req.body.albumId}, function(err) {
+      if (err) return res.status(400).send(err);
+      res.send('ok');
+    });
   });
 });
 

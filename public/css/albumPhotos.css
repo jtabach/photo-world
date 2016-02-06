@@ -3,10 +3,14 @@ body {
   background-size: cover;
 }
 
-img {
-  height: 200px;
-  /*height: 20vw;*/
+.photo {
+  background: no-repeat center center;
+  background-size: cover;
+  height: 300px;
+  width: 500px;
+  max-width: 33.3%;
   border: 5px solid black;
+  display: inline-block;
 }
 
 form {
@@ -16,17 +20,28 @@ form {
 h1 {
   text-align: center;
   color: black;
+  margin-bottom: 40px;
 }
 
-h3 {
+h2 {
   color: black;
+  margin-top:0;
+}
+
+label{
+  font-size: 20px
+}
+
+#addPhotos {
+  margin-top: 28px;
 }
 
 #albumCollection {
-  margin: 20px auto 60px auto;
+  margin: 10px auto 60px auto;
   background: black;
   padding: 5px;
 }
+
 #noPhotos {
   border: 2px solid black;
   text-align: center;

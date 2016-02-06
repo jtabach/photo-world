@@ -8,7 +8,8 @@ var photoSchema = new mongoose.Schema({
     ref: 'Album'
   },
   title: {type: String, default: 'title unknown'},
-  // date: {type: Boolean, default: true},
+  date: {type: Number, default: Date.now()},
+  privacy: {type: String},
   photoUrl: {type: String, default: "http://www.drphillipscenter.org/resources/images/default.jpg"}
 });
 

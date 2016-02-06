@@ -5,7 +5,6 @@ $(function() {
 });
 
 function addAlbum(e) {
-  console.log('ok');
   e.preventDefault();
   var newAlbum = {};
   newAlbum.title = $('#title').val() || 'title unknown';
